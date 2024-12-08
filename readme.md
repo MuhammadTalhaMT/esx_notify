@@ -1,64 +1,44 @@
-<h1 align='center'>[ESX] Notify</a></h1><p align='center'><b><a href='https://discord.esx-framework.org/'>Discord</a> - <a href='https://esx-framework.org/'>Website</a> - <a href='https://documentation.esx-framework.org/legacy/installation'>Documentation</a></b></h5>
+I've redesigned the ESX notification system to give it a more modern and premium feel while maintaining performance. This redesign focuses on smooth animations, better visual hierarchy, and improved readability.
 
-A beautiful and simple NUI notification system for ESX
+## Features
 
-# Example Code
+- 🎨 Modern gradient design
 
-<h3>Change style and time</h3>
+- ✨ Smooth animations for notifications and icons
 
-```lua
----usage: message/type/length
-ESX.ShowNotification("message here", "error", 3000)
-ESX.ShowNotification("message here", "success", 3000)
-ESX.ShowNotification("message here", "info", 3000)
+- 🎯 Distinct styles for success, error, and info notifications
 
-ESX.ShowNotification("text here") -- Default will time and type will be info/3000
-```
+- 📱 Centered notifications with progress indicator
 
-<h3>Export Usage</h3>
+- 🔄 Continuous icon animations
 
-```lua
-exports["esx_notify"]:Notify("info", 3000, "message here")
-```
+- ⚡ No blur effects for better performance
 
-<h3>Event Usage</h3>
+## Preview
 
-```lua
-TriggerEvent("ESX:Notify", "info", 3000, "message here")
-```
+[YouTube](https://youtu.be/FeZalbeDLgk)
 
-<h3>Color Code Usage</h3>
+## Installation
 
-```lua
-~r~ = Red
-~b~ = Blue
-~g~ = Green
-~y~ = Yellow
-~p~ = Purple
-~c~ = Grey
-~m~ = Dark Grey
-~u~ = Black
-~o~ = Orange
+1. Replace the contents of `[core]/esx_notify` with the new contents
 
-ESX.ShowNotification("I i ~r~love~s~ donuts", "success", 3000)
-```
+2. Run the script in server.cfg
 
-# Previews
+## Test Commands
 
-![Preview_1](https://cdn.discordapp.com/attachments/944789399852417096/997890963445927977/unknown.png)
+- `/nsuccess` - Shows a success notification
 
-![Preview_2_zoom](https://cdn.discordapp.com/attachments/944789399852417096/997892214053163148/unknown.png)
+- `/nerror` - Shows an error notification
 
-![Preview_2](https://cdn.discordapp.com/attachments/944789399852417096/997891726326898909/unknown.png)
+- `/ninfo` - Shows an info notification
 
-## Legal
+- `/nlong` - Shows a long text notification
 
-esx_notify- Notify!
+- `/ncolor` - Shows a notification with all color options
 
-Copyright (C) 2022-2024 ESX-Framework
+## Dependencies
 
-This program Is free software: you can redistribute it And/Or modify it under the terms Of the GNU General Public License As published by the Free Software Foundation, either version 3 Of the License, Or (at your option) any later version.
+- es_extended
 
-This program Is distributed In the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty Of MERCHANTABILITY Or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License For more details.
 
-You should have received a copy Of the GNU General Public License along with this program. If Not, see <http://www.gnu.org/licenses/>.
+Feel free to contribute or suggest improvements!
