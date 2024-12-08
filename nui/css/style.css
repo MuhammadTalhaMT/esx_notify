@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@300;400;500;600;800&display=swap");
+
+:root {
+    --color: #ffffff;
+    --background: rgba(15, 15, 15, 0.92);
+    --background-glow: rgba(255, 255, 255, 0.04);
+    --success: #00b65b;
+    --error: #ff4747;
+    --info: #0095ff;
+}
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    color: var(--color);
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+#root {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.notify {
+    position: relative;
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.98), rgba(20, 20, 20, 0.98));
+    border-radius: 12px;
+    margin: 8px;
+    padding: 18px;
+    width: 340px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                0 1px 2px rgba(255, 255, 255, 0.05);
+    transform-origin: top;
+    animation: slideDown 0.4s ease;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.notify::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.notify::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: translateX(-100%);
+    animation: slideProgress linear;
+    animation-duration: var(--duration);
+}
+
+.notify.success::after {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+.notify.error::after {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.notify.info::after {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.notify .innerText {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notify .icon-wrapper {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.notify .icon {
+    font-size: 22px;
+}
+
+.notify .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 24px;
+}
+
+.notify .text {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 14.5px;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.notify.fadeOut {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes slideProgress {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.notify.success .icon-wrapper {
+    background: linear-gradient(145deg, rgba(46, 204, 113, 0.15), rgba(46, 204, 113, 0.1));
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.15);
+}
+
+.notify.error .icon-wrapper {
+    background: linear-gradient(145deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.1));
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+}
+
+.notify.info .icon-wrapper {
+    background: linear-gradient(145deg, rgba(52, 152, 219, 0.15), rgba(52, 152, 219, 0.1));
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+}
+
+.notify.success .icon {
+    color: #2ecc71;
+    animation: successIcon 2s ease-in-out infinite;
+}
+
+.notify.error .icon {
+    color: #e74c3c;
+    animation: errorIcon 2s ease-in-out infinite;
+}
+
+.notify.info .icon {
+    color: #3498db;
+    animation: infoIcon 2s ease-in-out infinite;
+}
+
+@keyframes successIcon {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+@keyframes errorIcon {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.15) rotate(-8deg);
+    }
+    75% {
+        transform: scale(1.15) rotate(8deg);
+    }
+}
+
+@keyframes infoIcon {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.15) translateY(-3px);
+    }
+}
+
+.notify:hover .icon-wrapper {
+    transform: none;
+}
